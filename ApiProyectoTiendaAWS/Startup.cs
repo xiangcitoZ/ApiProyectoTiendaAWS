@@ -1,8 +1,13 @@
+using Amazon.S3;
 using ApiProyectoTienda.Repositories;
 using ApiProyectoTiendaAWS.Data;
+using ApiProyectoTiendaAWS.Helpers;
+using ApiProyectoTiendaAWS.Models;
 using ApiProyectoTiendaAWS.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace ApiProyectoTiendaAWS;
 
@@ -18,14 +23,26 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container
     public void ConfigureServices(IServiceCollection services)
     {
+
         string connectionString =
             this.Configuration.GetConnectionString("MySqlTienda");
+
+        string secrets =
+            HelperSecretManager.GetSecretAsync().Result;
+        KeysModel model = JsonConvert.DeserializeObject<KeysModel>(secrets);
+
         services.AddTransient<RepositoryArtista>();
         services.AddTransient<RepositoryCliente>();
         services.AddTransient<RepositoryInfoArte>();
+
+        //services.AddDbContext<ProyectoTiendaContext>
+        //    (options => options.UseMySql(connectionString
+        //    , ServerVersion.AutoDetect(connectionString)));
+
+
         services.AddDbContext<ProyectoTiendaContext>
-            (options => options.UseMySql(connectionString
-            , ServerVersion.AutoDetect(connectionString)));
+            (options => options.UseMySql(model.MySqlTienda
+            , ServerVersion.AutoDetect(model.MySqlTienda)));
 
         services.AddCors(options =>
         {

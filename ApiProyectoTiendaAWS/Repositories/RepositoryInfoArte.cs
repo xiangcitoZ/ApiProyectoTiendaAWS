@@ -1,6 +1,7 @@
 ﻿
 using ApiProyectoTiendaAWS.Data;
 using ApiProyectoTiendaAWS.Models;
+using PyoyectoNugetTienda;
 using System.Numerics;
 
 namespace ApiProyectoTienda.Repositories

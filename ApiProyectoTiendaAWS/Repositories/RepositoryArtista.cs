@@ -2,7 +2,7 @@
 using ApiProyectoTiendaAWS.Helpers;
 using ApiProyectoTiendaAWS.Models;
 using Microsoft.EntityFrameworkCore;
-
+using PyoyectoNugetTienda;
 using System.Security.Claims;
 
 namespace ApiProyectoTiendaAWS.Repositories

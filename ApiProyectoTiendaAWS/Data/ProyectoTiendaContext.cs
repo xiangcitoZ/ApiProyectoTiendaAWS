@@ -1,6 +1,6 @@
 ﻿using ApiProyectoTiendaAWS.Models;
 using Microsoft.EntityFrameworkCore;
-
+using PyoyectoNugetTienda;
 
 namespace ApiProyectoTiendaAWS.Data
 {

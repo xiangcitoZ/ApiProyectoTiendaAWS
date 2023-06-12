@@ -4,7 +4,7 @@ using ApiProyectoTiendaAWS.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using PyoyectoNugetTienda;
 
 namespace ApiProyectoTienda.Controllers
 {

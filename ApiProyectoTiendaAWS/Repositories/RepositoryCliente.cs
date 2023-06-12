@@ -2,6 +2,7 @@
 using ApiProyectoTiendaAWS.Helpers;
 using ApiProyectoTiendaAWS.Models;
 using ApiProyectoTiendaAWS.Data;
+using PyoyectoNugetTienda;
 
 namespace ApiProyectoTienda.Repositories
 {
